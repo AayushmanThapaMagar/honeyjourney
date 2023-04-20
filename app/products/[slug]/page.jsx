@@ -1,6 +1,5 @@
 import { getAllProducts, getProductBySlug } from "@/lib/swell/products";
-import Carousel from "./carousel";
-import Details from "./details";
+import ProductDetails from "@/components/products/productdetails";
 
 export async function generateStaticParams() {
     const products = await getAllProducts();
@@ -13,18 +12,10 @@ export async function generateStaticParams() {
 export default async function ProductPage({ params }) {
     const product = await getProductBySlug(params.slug);
 
-    const {name, description} = product;
 
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols- gap-5">
-                <div classname="col-span-2 h=[500px]">
-                    <Carousel product={product} />
-                </div>
-                <div className="col-span-1">
-                    <Details product={product} />
-                </div>
-            </div>
+            <ProductDetails product={product} />
         </div>
     )
 }

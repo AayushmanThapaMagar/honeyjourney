@@ -9,8 +9,8 @@ export default function ProductLayout({
   children: React.ReactNode
 }) {
   return (
-    <html>
-      <body>{children}</body>
-    </html>
+    <>
+    {children}
+    </>
   )
 }

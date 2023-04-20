@@ -1,5 +1,9 @@
 import './globals.css'
 import { StorefrontProvider } from "@/provider/storefront-provider";
+import Navigation  from "@/components/constants/navigation";
+import Footer from "@/components/constants/footer";
+// import {Cart} from "@/components/cart";
+
 
 export const metadata = {
   title: 'Honey Journey | Buy Mad Honey Online',
@@ -12,10 +16,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <StorefrontProvider>
-      <body>{children}</body>
-      </StorefrontProvider>
+    <html>
+      <head>
+        <body>
+          <StorefrontProvider>
+          <Navigation />
+          <main>
+            {children}
+          </main>
+          </StorefrontProvider>
+        </body>
+      </head>
     </html>
   )
 }
