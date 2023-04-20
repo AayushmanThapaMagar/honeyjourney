@@ -74,7 +74,7 @@ export default function Navigation() {
             href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium"
           >
-            Material Tailwind
+            Honey Journey
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
@@ -83,7 +83,7 @@ export default function Navigation() {
               size="sm"
               className="hidden lg:inline-block"
             >
-              <span>Buy Now</span>
+              <span>Contact Us</span>
             </Button>
             <IconButton
               variant="text"
