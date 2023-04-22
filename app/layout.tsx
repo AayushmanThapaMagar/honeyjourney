@@ -2,7 +2,7 @@ import './globals.css'
 import { StorefrontProvider } from "@/provider/storefront-provider";
 import Navigation  from "@/components/constants/navigation";
 import Footer from "@/components/constants/footer";
-// import {Cart} from "@/components/cart";
+import Cart from "@/components/constants/cart";
 
 
 export const metadata = {
@@ -21,9 +21,11 @@ export default function RootLayout({
         <body>
           <StorefrontProvider>
           <Navigation />
+          <Cart />
           <main>
             {children}
           </main>
+          <Footer />
           </StorefrontProvider>
         </body>
       </head>

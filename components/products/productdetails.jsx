@@ -1,15 +1,19 @@
 "use client";
 
-import { Card } from "@material-tailwind/react";
+import { useContext } from "react";
+import { Button, Card, Typography } from "@material-tailwind/react";
+import { AnimatePresence, motion } from "framer-motion";
+import { cart } from "swell-js";
+import { StorefrontContext } from "@/provider/storefront-provider";
+
 
 const ProductDetails = ({ product }) => {
 
-  return (
-    // <div className="flex flex-row gap-x-12 pt-10 pl-10">
-      // <div className="flex flex-row gap-x-12 pt-10 pl-10 flex flex-col md:flex-row md:items-start md:gap-x-12">
-      <div className="flex flex-row gap-x-12 pt-10 pl-10 flex-col md:flex-row md:items-start md:gap-x-12">
+  const {addItem} = useContext(StorefrontContext);
+  return ( 
+      <div className="flex flex-row gap-x-12 pt-10 pl-10 pr-10 flex-col md:flex-row md:items-start md:gap-x-12 sm:gap-y-5">
         <Card
-        className="w-full md:w-2/5 h-30vh md:h-60vh  overflow-hidden"
+        className="w-full md:w-2/5 h-30vh md:h-60vh md:pr-50 overflow-hidden"
         >
         <img
         alt={product.name}
@@ -17,20 +21,23 @@ const ProductDetails = ({ product }) => {
         className="object-cover object-center"
         />
         </Card>
-        <Card className="w-full md:w-3/5 mr-10">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex flex-col gap-y-2">
-            <h1 className="text-3xl font-bold">{product.name}</h1>
-            <p className="text-xl font-medium text-blue-500">
-              ${product.price}
-            </p>
-          </div>
-        </div>
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold">Description</h2>
-          <p className="mt-4 text-lg text-blue-gray-500">
-            {product.description}
-          </p>
+        <Card className="w-full h-30vh md:pr-50 md:w-3/5">
+        <Typography variant="h2" color="blue-gray" className="mb-2">
+          {product.name}
+        </Typography>
+        <Typography variant="h3" color="blue-gray" className="mb-2">
+          ${product.price}
+        </Typography>
+        <Typography color="gray" className="font-normal">
+          {product.description}
+        </Typography>
+        <div>
+          <Button
+          className="w-full mt-4 mb-4 pl-4 pr-4" 
+          onClick = {() => addItem({ product_id: product.id, quantity: 1})}
+          >
+            Add to cart
+          </Button>
         </div>
       </Card>
     </div>
