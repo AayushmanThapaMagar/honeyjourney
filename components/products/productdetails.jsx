@@ -9,7 +9,10 @@ import { StorefrontContext } from "@/provider/storefront-provider";
 
 const ProductDetails = ({ product }) => {
 
-  const {addItem} = useContext(StorefrontContext);
+  const {addItem,
+    open,
+    toggleCart
+  } = useContext(StorefrontContext);
   return ( 
       <div className="flex flex-row gap-x-12 pt-10 pl-10 pr-10 flex-col md:flex-row md:items-start md:gap-x-12 sm:gap-y-5">
         <Card
@@ -34,7 +37,7 @@ const ProductDetails = ({ product }) => {
         <div>
           <Button
           className="w-full mt-4 mb-4 pl-4 pr-4" 
-          onClick = {() => addItem({ product_id: product.id, quantity: 1})}
+          onClick = {() => addItem({ product_id: product.id, quantity: 1}).then(toggleCart(!open))}
           >
             Add to cart
           </Button>

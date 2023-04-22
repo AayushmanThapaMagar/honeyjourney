@@ -86,7 +86,7 @@ const Cart = () => {
                   <div className="h-20 w-20 relative">
                     <Image
                       src={
-                        item.variant?.images[0].file.url ||
+                        item.variant.images[0].file.url ||
                         item.product.images[0].file.url
                       }
                       alt={item.product.name}

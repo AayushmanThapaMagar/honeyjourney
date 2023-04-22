@@ -10,9 +10,9 @@ import {
   Card,
 } from "@material-tailwind/react";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { StorefrontContext } from "@/provider/storefront-provider";
 import { useContext } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 
 export default function Navigation() {
   const { cart, open, toggleCart } = useContext(StorefrontContext);
@@ -86,8 +86,7 @@ export default function Navigation() {
 
             {/* <AnimatePresence> */}
                 {/* <motion.Button */}
-                <Button
-                  variant="gradient"
+                <IconButton
                   size="sm"
                   onClick={() => toggleCart(!open)}
                   transition={{
@@ -98,8 +97,8 @@ export default function Navigation() {
                   exit={{ x: 50 }}
                   className="hidden lg:inline-block"
                 >
-                  Cart {cart?.item_quantity}
-            </Button>
+                  <FaShoppingCart /> {cart?.item_quantity}
+            </IconButton>
                 {/* </motion.Button> */}
             {/* </AnimatePresence> */}
             <IconButton
