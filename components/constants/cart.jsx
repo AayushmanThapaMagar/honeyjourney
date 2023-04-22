@@ -1,17 +1,26 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 
 import { StorefrontContext } from "@/provider/storefront-provider";
+import { useCart } from '@/lib/swell/hooks';
 
 import { Cross2Icon, UpdateIcon } from "@radix-ui/react-icons";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Cart = () => {
-  const { cart, getCart, open, toggleCart } = useContext(StorefrontContext);
+  const {
+    cart,
+    getCart,
+    open,
+    toggleCart
+  } = useContext(StorefrontContext);
 
-  const thumbnails = {
+   const { clearCart } = useCart();
+
+
+   const thumbnails = {
     visible: {
       opacity: 1,
       transition: {
@@ -25,23 +34,24 @@ const Cart = () => {
         when: "afterChildren",
       },
     },
-  };
+  }
 
   const thumbnail = {
-    visible: (i) => ({
+    visible: i => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.3,
+        delay: (i * 0.3),
         type: "spring",
         stiffness: 50,
         ease: [0.56, 0.03, 0.12, 1.04],
       },
     }),
     hidden: { opacity: 0, y: -50 },
-  };
+  }
+  
+  return ( 
 
-  return (
     <AnimatePresence>
       {open && (
         <>
@@ -53,68 +63,56 @@ const Cart = () => {
             onClick={() => toggleCart(!open)}
           />
           <motion.div
-            initial={{ opacity: 1, x: "350px", scale: "1" }}
-            animate={{ opacity: 1, x: "0", scale: "1" }}
-            transition={{ duration: 0.5, easse: "easeInOut" }}
-            exit={{ opacity: 0, x: "350px", scale: "1" }}
+            initial={{ opacity: 1, x: '350px',  scale: '1' }}
+            animate={{ opacity: 1, x: '0', scale: '1' }}
+            transition={{ duration: 0.5, ease: 'easeInOut'}}
+            exit={{ opacity: 0, x: '350px', scale: '1' }}
             className="flex flex-col justify-between h-screen w-[350px] fixed top-0 right-0 z-50 bg-white"
           >
-            <div>
-              <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
-                <h2 className="text-xl font-bold">Your Cart</h2>
-                <button
-                  onClick={() => toggleCart(!open)}
-                  className="focus:outline-none"
-                >
-                  <Cross2Icon className="w-6 h-6" />
-                </button>
+ <div>
+                <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
+                  <h2 className="text-xl font-bold">Your Cart</h2>
+                  <button onClick={() => toggleCart(!open)} className="focus:outline-none">
+                    <Cross2Icon className="w-6 h-6" />
+                  </button>
+                </div>
               </div>
-            </div>
-            <motion.div
-              variants={thumbnails}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-col justify-start flex-grow border border-gray-100 space-y-5 overflow-y-auto p-3"
-            >
-              {cart?.item?.map((item, i) => (
-                <motion.div
-                  key={item.id}
-                  custom={i}
-                  variants={thumbnail}
-                  className="flex items-center space-x-5 shadow-sm "
-                >
-                  <div className="h-20 w-20 relative">
-                    <Image
-                      src={
-                        item.variant.images[0].file.url ||
-                        item.product.images[0].file.url
-                      }
-                      alt={item.product.name}
-                      className="rounded-sm object-cover object-center"
-                    />
+              <motion.div
+                variants={thumbnails}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-col jusitfy-start flex-grow border border-gray-100 space-y-5 overflow-y-auto p-3">
+                  {cart?.items?.map((item, i) => (
+                <motion.div 
+                key={item.id} 
+                custom={i}
+                variants={thumbnail}
+                className="flex items-center space-x-5 shadow-sm">
+                <div className="h-20 w-20 relative">
+                <Image
+                          src={item.variant?.images[0].file.url || item.product.images[0].file.url}
+                          alt={item.product.name}
+                          fill
+                          className="rounded-sm object-cover object-center"
+                          
+                        />
                   </div>
-                  <div className="">
-                    <p className="font-bold"> {item.product.name}</p>
-                    <p className="text-sm"> {item.variant?.name}</p>
-                    {item.purchase_option?.type === "subscription" && (
-                      <span className="flex items-center space-x-1">
-                        <UpdateIcon className="h-3 w-3" />
-                        <p className="text-xs">
-                          {item.purchase_option?.plan_description}
-                        </p>
-                      </span>
-                    )}
-                    <p className="text-xs">Q: {item.quantity} </p>
-                  </div>
-                </motion.div>
-              ))}
+                      <div className="">
+                        <p className="font-bold">{item.product.name}</p>
+                        <p className="text-sm">{item.variant?.name}</p>
+                        {item.purchase_option?.type === 'subscription' && (
+                          <span className="flex items-center space-x-1">
+                            <UpdateIcon className="h-3 w-3" />
+                            <p className="text-xs">{item.purchase_option?.plan_description}</p>
+                          </span>
+                   )}
+                   <p className="text-xs">Quantity: {item.quantity}</p>
+                 </div>
+               </motion.div>
+             ))}
             </motion.div>
             <div className="w-full">
               <div className="flex flex-col px-3 py-5 border-t border-gray-200 divide-y divide-gray-200">
-                <div className="flex justify-between py-2">
-                  <p className="text-sm">Subtotal</p>
-                  <p className="text-sm font-bold">${cart?.subtotal}</p>
-                </div>
                 <div className="flex justify-between py-2">
                   <p className="text=md">Total</p>
                   <p className="text-md font-bold">${cart?.grand_total}</p>

@@ -97,7 +97,9 @@ export default function Navigation() {
                   exit={{ x: 50 }}
                   className="hidden lg:inline-block"
                 >
-                  <FaShoppingCart /> {cart?.item_quantity}
+                  <div
+                  className="flex flex-row justify-between items-center"
+                  > <FaShoppingCart /> {cart?.item_quantity}</div>
             </IconButton>
                 {/* </motion.Button> */}
             {/* </AnimatePresence> */}
@@ -142,9 +144,9 @@ export default function Navigation() {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          {/* <Button variant="gradient" size="sm" fullWidth className="mb-2">
+          <Button variant="gradient" size="sm" fullWidth className="mb-2">
             <span>Buy Now</span>
-          </Button> */}
+          </Button>
         </MobileNav>
       </Navbar>
     </>
