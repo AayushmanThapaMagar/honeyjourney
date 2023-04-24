@@ -2,6 +2,7 @@
 
 import React, { useContext, useEffect } from "react";
 import Image from "next/image";
+import swr from "swr";
 
 import { StorefrontContext } from "@/provider/storefront-provider";
 import { useCart } from '@/lib/swell/hooks';

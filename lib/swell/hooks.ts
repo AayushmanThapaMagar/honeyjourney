@@ -25,5 +25,5 @@ export const useCart = () => {
         getCart();
     }, [])
 
-    return { cart, addItem, removeItem}
+    return { cart, addItem, removeItem, getCart}
 }

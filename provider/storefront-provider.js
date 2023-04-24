@@ -7,7 +7,7 @@ export const StorefrontContext = React.createContext();
 export const StorefrontProvider = ({children}) => {
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
-    const { cart , addItem, removeItem} = useCart();
+    const { cart , addItem, removeItem, getCart} = useCart();
 
     const toggleCart = () => {
         setOpen(!open)
@@ -21,7 +21,8 @@ export const StorefrontProvider = ({children}) => {
             setOpen,
             toggleCart,
             loading,
-            setLoading
+            setLoading,
+            getCart
         }}>
             {children}
         </StorefrontContext.Provider>
