@@ -1,10 +1,7 @@
 "use client";
 
 import { useContext, useState } from "react";
-import { clearCart } from "@/lib/swell/hooks";
 import { Button, Card, Typography, Input } from "@material-tailwind/react";
-import { AnimatePresence, motion } from "framer-motion";
-import { cart } from "swell-js";
 import { StorefrontContext } from "@/provider/storefront-provider";
 
 const ProductDetails = ({ product }) => {

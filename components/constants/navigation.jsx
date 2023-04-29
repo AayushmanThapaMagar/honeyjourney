@@ -95,7 +95,7 @@ export default function Navigation() {
                     stiffness: 100,
                   }}
                   exit={{ x: 50 }}
-                  className="hidden lg:inline-block"
+                  className="hidden lg:inline-block transition duration-300 ease-in-out transform hover:scale-105"
                 >
                   <div
                   className="flex flex-row justify-between items-center"
@@ -105,7 +105,7 @@ export default function Navigation() {
             {/* </AnimatePresence> */}
             <IconButton
               variant="text"
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden "
               ripple={false}
               onClick={() => setOpenNav(!openNav)}
             >
@@ -144,8 +144,10 @@ export default function Navigation() {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>Buy Now</span>
+          <Button 
+          onClick={() => toggleCart(!open)}
+          variant="gradient" size="sm" fullWidth className="mb-2">
+            <span>Open Cart</span>
           </Button>
         </MobileNav>
       </Navbar>
