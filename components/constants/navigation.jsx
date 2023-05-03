@@ -7,7 +7,6 @@ import {
   Typography,
   Button,
   IconButton,
-  Card,
 } from "@material-tailwind/react";
 
 import { StorefrontContext } from "@/provider/storefront-provider";

@@ -25,8 +25,10 @@ export default function RootLayout({
           <main>
             {children}
           </main>
-          <Footer />
           </StorefrontProvider>
+          <footer>
+          <Footer />
+          </footer>
         </body>
       </head>
     </html>
