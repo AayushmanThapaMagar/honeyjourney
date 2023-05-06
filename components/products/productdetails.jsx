@@ -22,7 +22,7 @@ const ProductDetails = ({ product }) => {
 
  
   return (
-    <div className=" md:mr-20 md:ml-20 flex flex-row gap-x-12 pt-10 pl-10 pr-10 flex-col md:flex-row md:items-start md:gap-x-12 sm:gap-y-5">
+    <div className=" md:mr-20 md:ml-20 flex flex-row gap-x-12 pt-10 pl-10 pr-10 md:flex-row md:items-start md:gap-x-12 sm:gap-y-5">
       <Card className="w-full md:w-2/5 h-30vh md:h-10vh md:pr-50 overflow-hidden">
         <img
           alt={product.name}
