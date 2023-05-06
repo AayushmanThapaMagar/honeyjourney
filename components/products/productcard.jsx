@@ -9,14 +9,14 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-import Image from "next/image";
+// import Image from "next/image";
 export default function ProductCard({ product }) {
 
   return (
     <Card className="w-96 h-120 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-[0_35px_60px_-15px_rgba(135,206,235)]">
       <a href={`/products/${product.slug}`}>
         <CardHeader color="#FCA000" className="relative h-100">
-          <Image
+          <img
             src={product.images[0].file.url}
             alt={product.name}
             className="object-cover object-center"

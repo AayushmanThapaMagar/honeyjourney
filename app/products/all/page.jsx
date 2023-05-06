@@ -10,7 +10,7 @@ export default async function ProductPage() {
     md:justify-center 
     md:min-h-screen 
     md:py-2 
-    md:gap-x-10 
+    md:gap-x-20
     flex-col
     gap-y-10
     py-2

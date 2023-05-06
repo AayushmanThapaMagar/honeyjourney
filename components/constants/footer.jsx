@@ -6,7 +6,7 @@ import { Typography } from "@material-tailwind/react";
  
 export default function SimpleFooter() {
   return (
-    <footer className="z-0 pl-10 pr-20 flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-blue-gray-50 py-6 text-center md:justify-between" style={{position: "fixed", bottom: 0}}>
+    <footer className="pl-10 pr-20 flex w-full flex-row flex-wrap items-center justify-center mt-10 gap-x-12 border-t border-blue-gray-50 py-6 text-center md:justify-between">
       <Typography color="blue-gray" className="font-normal">
         &copy; 2023 Honey Journey | All rights reserved
       </Typography>
