@@ -97,6 +97,7 @@ export default function Navigation() {
                 {/* <motion.Button */}
                 <IconButton
                   size="sm"
+                  variant="outlined"
                   onClick={() => toggleCart(!open)}
                   transition={{
                     ease: "easeOut",
@@ -104,11 +105,10 @@ export default function Navigation() {
                     stiffness: 100,
                   }}
                   exit={{ x: 50 }}
-                  className="hidden lg:inline-block transition duration-300 ease-in-out transform hover:scale-105"
                 >
                   <div
                   className="flex flex-row justify-between items-center"
-                  > <FaShoppingCart /> {cart?.item_quantity}</div>
+                  > <FaShoppingCart className="mr-1"/> {cart?.item_quantity}</div>
             </IconButton>
                 {/* </motion.Button> */}
             {/* </AnimatePresence> */}

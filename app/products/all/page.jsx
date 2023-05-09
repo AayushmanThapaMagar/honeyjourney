@@ -1,15 +1,18 @@
 import { getAllProducts} from "@/lib/swell/products";
 import ProductCard from "@/components/products/productcard";
+import CustomHeading from "@/components/products/heading"
+
 
 export default async function ProductPage() {
   const products = await getAllProducts();
 
   return (
+    <>
+        <CustomHeading  text="Our Products 🐝" />
     <div className="flex md:flex-row 
     md:items-center 
     md:justify-center 
-    md:min-h-screen 
-    md:py-2 
+    md:mt-20
     md:gap-x-20
     flex-col
     gap-y-10
@@ -19,5 +22,6 @@ export default async function ProductPage() {
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
+    </>
   );
 }

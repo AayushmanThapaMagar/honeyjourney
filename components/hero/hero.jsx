@@ -5,7 +5,7 @@ export default function Hero () {
     return (
         <div>
 
-            {/* <img
+            <img
             src="https://images.unsplash.com/photo-1536788567643-8c2368376526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
             />
 
@@ -23,13 +23,13 @@ export default function Hero () {
 
             <img
             src = "https://images.unsplash.com/photo-1532056934000-661e425b5e8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-            /> */}
+            />
 
             
-            <Card className="mt-10 pt-10 mx-10">
+            {/* <Card className="mt-10 pt-10 mx-10">
 
                 Hero
-            </Card>
+            </Card> */}
         </div>
     )
 }
