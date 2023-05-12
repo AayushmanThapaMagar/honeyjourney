@@ -5,7 +5,7 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['cdn.schema.io'],
+    domains: ['cdn.schema.io', 'cdn.swell.store'],
   }
 }
 
