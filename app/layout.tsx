@@ -18,13 +18,14 @@ export default function RootLayout({
   return (
     <html>
       <head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
         <body>
           <StorefrontProvider>
+          <div
+          // style={{ backgroundColor: 'rgb(35, 31, 30)' }}
+          className='sticky inset-0 z-10 flex flex-row justify-between items-center w-full lg:px-10 mt-2 py-1'
+          >
           <Navigation />
+          </div>
           <Cart />
           <main>
             {children}

@@ -21,9 +21,15 @@ export const useCart = () => {
         setCart(cart);
     }
 
+    const clearCart = async () => {
+        const cart = await swell.cart.setItems([]);
+        setCart(cart);
+    }
+
+
     useEffect(() => {
         getCart();
     }, [])
 
-    return { cart, addItem, removeItem, getCart}
+    return { cart, addItem, removeItem, getCart, clearCart}
 }

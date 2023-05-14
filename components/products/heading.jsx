@@ -6,6 +6,7 @@ export default function CustomHeading({text}) {
     return (
         <Typography
         variant = "h2"
+        color = "white"
         className = "flex flex-row items-center justify-center mt-20">
             {text}
         </Typography>

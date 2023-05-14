@@ -28,10 +28,20 @@ export default function Navigation() {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+           <Typography
+        as="li"
+        variant="small"
+        color="white"
+        className="p-1 font-normal"
+      >
+        <a href="/" className="flex items-center">
+          Home
+        </a>
+      </Typography>
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
+        color="white"
         className="p-1 font-normal"
       >
         <a href="/products/all" className="flex items-center">
@@ -41,31 +51,11 @@ export default function Navigation() {
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <a href="#" className="flex items-center">
-          Account
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
+        color="white"
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
           Blocks
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <a href="#" className="flex items-center">
-          Docs
         </a>
       </Typography>
     </ul>
@@ -73,7 +63,9 @@ export default function Navigation() {
 
   return (
     <>
-      <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar 
+      style={{ backgroundColor: 'rgb(35, 31, 30)' }}
+      className="h-max max-w-full py-2 px-4 lg:px-8 lg:rounded-lg rounded-none bg-slate-900 border-transparent">
         <div className="flex items-center justify-between text-blue-gray-900">
           {/* <Typography
             as="a"
@@ -153,11 +145,11 @@ export default function Navigation() {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <Button 
+          {/* <Button 
           onClick={() => toggleCart(!open)}
           variant="gradient" size="sm" fullWidth className="mb-2">
             <span>Open Cart</span>
-          </Button>
+          </Button> */}
         </MobileNav>
       </Navbar>
     </>
