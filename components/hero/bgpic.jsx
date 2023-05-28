@@ -6,7 +6,7 @@ export default function BgImage() {
   return (
 
 <div
-  className=" z-10 flex flex-row h-screen mt-0"
+  className="flex flex-row h-screen"
   style={{
     backgroundImage: `url("/images/1.webp")`,
     backgroundSize: "cover",
@@ -42,9 +42,6 @@ export default function BgImage() {
     </div>
     
 </div>
-
-
-
   );
 }
 
