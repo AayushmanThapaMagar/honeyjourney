@@ -2,7 +2,7 @@
 
 import { Typography, Button } from "@material-tailwind/react";
 
-export default function BgImage() {
+export default function Hero() {
   return (
 
 <div

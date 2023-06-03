@@ -1,12 +1,12 @@
 "use client";
 
 import { Typography } from "@material-tailwind/react";
-import ProductCard from "./productcard";
+import ProductCard from "../products/productcard";
 
 export default function FeautredProducts({ products }) {
   return (
     <div
-      className="h-screen justify-center"
+      className="w-screen h-screen justify-center"
       style={{
         backgroundImage: "url('/images/2.webp')",
         backgroundSize: "cover",
