@@ -2,36 +2,28 @@
 
 "use client";
 
-import { Typography } from "@material-tailwind/react";
  
 export default function SimpleFooter() {
   return (
-    <footer className="pl-10 pr-20 flex w-full flex-row flex-wrap items-center justify-center mt-10 gap-x-12 border-t border-blue-gray-50 py-6 text-center md:justify-between">
-      <Typography color="blue-gray" className="font-normal">
-        &copy; 2023 Honey Journey | All rights reserved
-      </Typography>
-      <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
+<footer class="bg-white shadow dark:bg-gray-800">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Honey Journey</a>. All Rights Reserved.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-          <Typography
-            as="a"
-            href="#"
-            color="blue-gray"
-            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-          >
-            About Us
-          </Typography>
+            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
         </li>
         <li>
-          <Typography
-            as="a"
-            href="#"
-            color="blue-gray"
-            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-          >
-            Contact Us
-          </Typography>
+            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
         </li>
-      </ul>
-    </footer>
+        <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline">Contact</a>
+        </li>
+    </ul>
+    </div>
+</footer>
   );
 }

@@ -6,7 +6,7 @@ export default function Hero() {
   return (
 
 <div
-  className="flex flex-row h-screen"
+  className="flex flex-row h-screen x-overflow-hidden"
   style={{
     backgroundImage: `url("/images/1.webp")`,
     backgroundSize: "cover",
@@ -17,7 +17,7 @@ export default function Hero() {
     <div 
     className="w-1/2 h-screen flex flex-col justify-center items-center pb-36"
     >
-    <div className="">
+    <div className="md:pl-20">
     <Typography color="amber" variant="h1">Mad Honey</Typography>
         <Typography color="white" variant="h3">From The Himalayas</Typography>
         <div

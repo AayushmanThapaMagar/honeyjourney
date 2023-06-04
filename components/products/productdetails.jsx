@@ -37,9 +37,7 @@ const ProductDetails = ({ product }) => {
         <Typography variant="h3" color="blue-gray" className="mb-2">
           ${product.price}
         </Typography>
-        <Typography color="gray" className="font-normal">
-          {product.description}
-        </Typography>
+        <Typography color="gray" className="font-normal" dangerouslySetInnerHTML={{ __html: product.description }}/>
         <div className="flex flex-row gap-4">
 
           <div className="w-1/3">

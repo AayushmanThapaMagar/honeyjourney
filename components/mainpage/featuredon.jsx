@@ -8,7 +8,7 @@ const FeaturedProducts = () => {
   const brandLogos = [
     'https://www.vicemediagroup.com/wp-content/uploads/2020/10/VICE_LOGO_BLACK-e1617894708861.png',
     'https://upload.wikimedia.org/wikipedia/en/4/4b/The_Joe_Rogan_Experience_logo.jpg?20180113072414',
-    'https://example.com/logo3.png',
+    'https://yestheory.com/wp-content/themes/jobs/assets/images/yes_theory_blue-p-500.png',
     // Add more logo URLs here
   ];
 

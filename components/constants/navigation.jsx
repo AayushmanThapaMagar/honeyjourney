@@ -27,7 +27,7 @@ export default function Navigation() {
   }, []);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-6">
            <Typography
         as="li"
         variant="small"
@@ -143,7 +143,9 @@ export default function Navigation() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <MobileNav 
+        className="mt-0"
+        open={openNav}>
           {navList}
           {/* <Button 
           onClick={() => toggleCart(!open)}

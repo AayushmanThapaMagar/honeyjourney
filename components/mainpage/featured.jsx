@@ -1,31 +1,59 @@
-"use client";
+'use client';
 
+import React from 'react';
 import { Typography } from "@material-tailwind/react";
-import ProductCard from "../products/productcard";
+import ProductCard from "../products/productcard2";
+import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 
-export default function FeautredProducts({ products }) {
+export default function FeaturedProducts({ products }) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   return (
     <div
-      className="w-screen h-screen justify-center"
+      className="w-full h-auto flex flex-col items-center overflow-hidden"
       style={{
         backgroundImage: "url('/images/2.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundColor: "rgba(249, 248, 245)",
+        overflow: "hidden",
       }}
     >
-      <div className="py-20">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: -50 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+        transition={{ duration: 1.25 }} // Adjust the duration value for slower animations
+        className="py-20"
+      >
         <Typography color="gray" className="text-center text-4xl font-bold">
           Featured Products
         </Typography>
-      </div>
+      </motion.div>
 
-      <div className="flex md:flex-row md:items-center md:justify-center md:mt-20 md:gap-x-20 flex-col gap-y-10 py-2 ">
-        {products.reverse().map((products) => (
-          <ProductCard key={products.id} product={products} />
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 1 }} // Adjust the duration value for slower animations
+        className="flex flex-wrap justify-center gap-14 md:pb-20"
+      >
+        {products.reverse().map((product) => (
+          <motion.div
+            key={product.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 1 }} // Adjust the duration value for slower animations
+            className="flex-shrink-1 sm:scale-75"
+          >
+            <ProductCard product={product} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

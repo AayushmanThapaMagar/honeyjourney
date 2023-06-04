@@ -37,6 +37,7 @@ export default function Testimonials() {
   ];
   const [ref, inView] = useInView({
     triggerOnce: true,
+    threshold: 0.2,
   });
   const controls = useAnimation();
   const [animated, setAnimated] = useState(false);
@@ -49,8 +50,8 @@ export default function Testimonials() {
   }, [inView, animated, controls]);
 
   return (
-    <div className="bg-gray-100">
-      <div className="container mx-auto py-16">
+    <div className="bg-gray-100 w-auto">
+      <div className="container mx-auto py-16 ">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold">Testimonials</h1>
           <p>Reviews from Customers Across the Globe</p>
