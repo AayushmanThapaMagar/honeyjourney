@@ -21,8 +21,8 @@ export default function RootLayout({
         <body>
           <StorefrontProvider>
           <div
-          // style={{ backgroundColor: 'rgb(35, 31, 30)' }}
-          className='sticky inset-0 z-10 flex flex-row justify-between items-center w-full lg:px-10 mt-2 py-1'
+          style={{ backgroundColor: 'rgb(35, 31, 30)' }}
+          className='sticky inset-0 z-10 flex flex-row justify-between items-center w-full'
           >
           <Navigation />
           </div>

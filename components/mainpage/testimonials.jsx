@@ -11,7 +11,7 @@ export default function Testimonials() {
       text:
         'Wanted to try ever since i saw it on JRE. The taste is definately different from regular honey. I tried it with tea and it got me wasted!',
       avatarSrc:
-        'https://thispersondoesnotexist.xyz/img/3687.jpg',
+        'https://thispersondoesnotexist.xyz/img/3449.jpg',
       name: 'Rob K.',
       location: 'Coventry, UK',
     },
@@ -30,14 +30,14 @@ export default function Testimonials() {
         text:
           'I was skeptical at first, since honey from other sellers didnt seem to work. But after trying it, I can say this is the real deal.',
         avatarSrc:
-          'https://thispersondoesnotexist.xyz/img/3981.jpg',
+          'https://thispersondoesnotexist.xyz/img/4016.jpg',
         name: 'Kim S.',
         location: 'Incheon, South Korea',
       },
   ];
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.05,
   });
   const controls = useAnimation();
   const [animated, setAnimated] = useState(false);
@@ -50,17 +50,17 @@ export default function Testimonials() {
   }, [inView, animated, controls]);
 
   return (
-    <div className="bg-gray-100 w-auto">
-      <div className="container mx-auto py-16 ">
+    <div className="bg-gray-100 w-auto sm:flex-row">
+      <div className="mx-auto py-16 lg:px-14">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold">Testimonials</h1>
           <p>Reviews from Customers Across the Globe</p>
         </div>
-        <div className="flex flex-wrap justify-center -mx-4">
+        <div className="flex lg:flex-row sm:flex-col lg:flex-wrap justify-center">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8"
+              className="w-full lg:w-1/3 px-4 mb-8"
               ref={index === testimonials.length - 1 ? ref : null}
               initial="hidden"
               animate={controls}
@@ -69,7 +69,7 @@ export default function Testimonials() {
                 hidden: { opacity: 0, y: 50 },
               }}
               transition={{
-                delay: 0.4 + index * 0.2,
+                delay: 0.2 + index * 0.2,
                 duration: 0.6,
               }}
             >

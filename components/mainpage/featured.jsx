@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Typography } from "@material-tailwind/react";
-import ProductCard from "../products/productcard2";
+import ProductCard from "../products/productcard";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 

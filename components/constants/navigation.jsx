@@ -65,7 +65,7 @@ export default function Navigation() {
     <>
       <Navbar 
       style={{ backgroundColor: 'rgb(35, 31, 30)' }}
-      className="h-max max-w-full py-2 px-4 lg:px-8 lg:rounded-lg rounded-none bg-slate-900 border-transparent">
+      className="h-max max-w-full lg:px-8 rounded-none bg-slate-900 border-transparent">
         <div className="flex items-center justify-between text-blue-gray-900">
           {/* <Typography
             as="a"
@@ -106,7 +106,7 @@ export default function Navigation() {
             {/* </AnimatePresence> */}
             <IconButton
               variant="text"
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden "
+              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
               ripple={false}
               onClick={() => setOpenNav(!openNav)}
             >

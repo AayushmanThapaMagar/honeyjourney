@@ -1,39 +1,62 @@
-"use client";
+'use client';
+
 
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
+    Card,
+    CardHeader,
+    CardBody,
+    Typography,
+    Button,
+    CardFooter,
+  } from "@material-tailwind/react";
 
-// import Image from "next/image";
-export default function ProductCard({ product }) {
+  import { useContext} from "react";
+  import { StorefrontContext } from "@/provider/storefront-provider";
+   
+  export default function ProductCard({ product }) {
+    const { addItem, open, toggleCart, getCart  } = useContext(StorefrontContext);
+    const handleAddToCartClick = () => {
+        addItem({ product_id: product.id, quantity: 1}).then(() => {
+          getCart();
+          toggleCart(!open);
+    
+        });
+      };
 
-  return (
-    <Card className="w-80 h-120 transition duration-300 ease-in-out transform hover:scale-105 ">
-      {/* hover:shadow-[0_35px_60px_-15px_rgba(135,206,235)] */}
-      <a href={`/products/${product.slug}`}>
-        <CardHeader color="#FCA000" className="relative h-100">
-          <img
+      
+    return (
+        
+      <Card className="w-96 transition duration-300 ease-in-out transform md:hover:scale-105">
+        <a href={`/products/${product.slug}`}>
+        <CardHeader shadow={false} floated={false} className="h-96">
+          <img 
             src={product.images[0].file.url}
             alt={product.name}
-            className="object-cover object-center"
+            className="w-full h-full object-cover"
           />
         </CardHeader>
-        <CardBody className="text-center">
-          <Typography variant="h5" className="mb-2">
+        </a>
+        <CardBody>
+          <div className="flex items-center justify-between mb-2">
+            <Typography color="blue-gray" className="font-medium">
             {product.name}
-          </Typography>
-          {/* <Typography>{product.description}</Typography> */}
+            </Typography>
+            <Typography color="blue-gray" className="font-medium">
+            ${product.price}
+            </Typography>
+          </div>
+          {/* <Typography variant="small" color="gray" className="font-normal opacity-75" dangerouslySetInnerHTML={{ __html: product.meta_description }}/> */}
         </CardBody>
-      </a>
-      <CardFooter divider className="text-center">
-        <Typography variant="h5">${product.price}</Typography>
-        {/* <Button onClick={() => handleAddToCartClick()}>Add to Cart</Button> */}
-      </CardFooter>
-    </Card>
-  );
-}
+        <CardFooter className="pt-0">
+          <Button
+            ripple={false}
+            fullWidth={true}
+            className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
+            onClick={() => handleAddToCartClick()}
+          >
+            Add to Cart
+          </Button>
+        </CardFooter>
+      </Card>
+    );
+  }
